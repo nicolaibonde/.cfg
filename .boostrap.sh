@@ -29,6 +29,7 @@ sudo apt install -y neovim
 # Installing modern replacements for GNU coreutils
 ## Installing bat modern replacement for cat
 sudo apt install -y bat
+batcat cache --build # Might need to call again if theme is not loaded
 
 ## Installing eza modern replacement for ls
 sudo apt install -y gpg
