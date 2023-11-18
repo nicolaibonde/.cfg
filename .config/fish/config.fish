@@ -3,3 +3,5 @@ if status is-interactive
 end
 
 alias config='/usr/bin/git --git-dir=/home/nkb/.cfg/ --work-tree=$HOME'
+
+starship init fish | source
