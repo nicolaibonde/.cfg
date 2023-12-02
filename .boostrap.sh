@@ -24,7 +24,8 @@ fc-cache -fv
 curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
 # Installing neovim
-sudo apt install -y neovim 
+sudo wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -O /usr/local/bin/nvim
+sudo chmod +x /usr/local/bin/nvim
 
 # Installing modern replacements for GNU coreutils
 ## Installing bat modern replacement for cat
