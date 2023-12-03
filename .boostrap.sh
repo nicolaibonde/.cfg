@@ -8,12 +8,12 @@ sudo apt install -y fish
 sudo chsh -s /usr/bin/fish
 
 ## Installing kitty - terminal
-sudo apt install -y fish 
+sudo apt install -y fish
 sudo update-alternatives --set x-terminal-emulator /usr/bin/kitty
 
 ## Styling packages for terminal and shell
 ### Install nerd font FiraCode
-sudo apt install -y fonts-firacode 
+sudo apt install -y fonts-firacode
 mkdir ~/.fonts/
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraCode.zip -O temp.zip
 unzip -n temp.zip -d ~/.fonts/
@@ -23,7 +23,19 @@ fc-cache -fv
 ### Installing starship cross shell prompt
 curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
-# Installing neovim
+# Install developer tools
+## c/c++ compilers
+sudo apt install -y build-essentials
+
+## LazyGit
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
+rm lazygit
+rm lazygit.tar.gz
+
+## Installing neovim
 sudo wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -O /usr/local/bin/nvim
 sudo chmod +x /usr/local/bin/nvim
 
@@ -50,4 +62,3 @@ sudo snap connect bottom:mount-observe
 sudo snap connect bottom:hardware-observe
 sudo snap connect bottom:system-observe
 sudo snap connect bottom:process-control
-
