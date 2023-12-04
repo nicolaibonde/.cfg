@@ -8,6 +8,7 @@ starship init fish | source
 
 ## config alias used to commit changes to config files
 alias config='/usr/bin/git --git-dir=/home/nkb/.cfg/ --work-tree=$HOME'
+alias lazyconfig='lazygit --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 ## cat -> batcat
 alias cat="batcat"
@@ -24,6 +25,3 @@ alias ps="procs"
 alias top="bottom"
 alias htop="bottom"
 alias ytop="bottom"
-
-
-
