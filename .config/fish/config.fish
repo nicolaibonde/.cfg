@@ -1,8 +1,9 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
-
+fish_vi_key_bindings
 starship init fish | source
+
 
 # Alias
 
@@ -25,3 +26,6 @@ alias ps="procs"
 alias top="bottom"
 alias htop="bottom"
 alias ytop="bottom"
+
+## esp idf source
+alias get_idf=". $HOME/Lab/tools/esp/esp-idf/export.fish"
