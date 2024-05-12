@@ -11,11 +11,11 @@ Package: *
 Pin: origin packages.mozilla.org
 Pin-Priority: 1000
 ' | sudo tee /etc/apt/preferences.d/mozilla
-sudo apt update && sudo apt install firefox
+sudo apt update -y && sudo apt install firefox -y
 
 ## Install 1Password
 wget https://downloads.1password.com/linux/debian/amd64/stable/1password-latest.deb
-sudo apt install ./1password-latest.deb -y
+sudo apt install -y ./1password-latest.deb
 rm 1password-latest.deb
 
 # Installing Terminal and shell
