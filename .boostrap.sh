@@ -1,5 +1,23 @@
 #!/bin/bash
 
+# Install firefox & 1Password
+## Remove snap firefox - it doesn't work with 1Password
+sudo snap remove firefox --purge
+sudo install -d -m 0755 /etc/apt/keyrings
+wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
+echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
+echo '
+Package: *
+Pin: origin packages.mozilla.org
+Pin-Priority: 1000
+' | sudo tee /etc/apt/preferences.d/mozilla
+sudo apt update && sudo apt install firefox
+
+## Install 1Password
+wget https://downloads.1password.com/linux/debian/amd64/stable/1password-latest.deb
+sudo apt install ./1password-latest.deb -y
+rm 1password-latest.deb
+
 # Installing Terminal and shell
 ## Installing fish - shell
 sudo apt-add-repository -y ppa:fish-shell/release-3
